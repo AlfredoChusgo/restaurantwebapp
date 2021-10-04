@@ -1,0 +1,8 @@
+.vs/
+Application/bin/
+Application/obj/
+Domain/bin/
+Domain/obj/
+Infrastructure/obj/
+restaurant_web_app/obj/
+Infrastructure/bin/

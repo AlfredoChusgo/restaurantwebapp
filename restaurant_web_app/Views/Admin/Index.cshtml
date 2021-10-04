@@ -1,0 +1,70 @@
+﻿@using Domain.Entities
+@model List<Domain.Entities.BookingItem>
+
+@{
+    ViewData["Title"] = "Restaurant Bookings";
+}
+
+<style>
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+</style>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary">Share</button>
+            <button class="btn btn-sm btn-outline-secondary">Export</button>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            This week
+        </button>
+    </div>
+</div>
+
+
+<div class ="table-tittle">
+    <div class="row">
+        <div class="col-sm-8"><h2>Booking <b>Details</b>
+            <button type="button" class="btn btn-primary add-new"><i class="fa fa-plus"></i> Add New</button>
+            </h2></div>
+        <div class="col-sm-4">
+            
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>PartySize</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (BookingItem item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.PartySize</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>@item.Status</td>
+                <td>@item.Details</td>
+            </tr>
+        }
+        
+        </tbody>
+    </table>
+</div>
