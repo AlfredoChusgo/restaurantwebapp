@@ -13,6 +13,7 @@ namespace Domain.Entities
         public int PartySize { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public DateTime Date { get; set; }
         public string Phone { get; set; }
         public BookingStatus Status { get; set; }
         public string Details { get; set; }

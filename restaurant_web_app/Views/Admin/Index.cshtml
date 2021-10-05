@@ -1,5 +1,6 @@
 ﻿@using Domain.Entities
-@model List<Domain.Entities.BookingItem>
+@using Domain.Enums
+@model Application.Booking.Queries.GetBookingsVm
 
 @{
     ViewData["Title"] = "Restaurant Bookings";
@@ -27,18 +28,76 @@
 </div>
 
 
-<div class ="table-tittle">
+<div class ="table-title">
     <div class="row">
-        <div class="col-sm-8"><h2>Booking <b>Details</b>
-            <button type="button" class="btn btn-primary add-new"><i class="fa fa-plus"></i> Add New</button>
-            </h2></div>
-        <div class="col-sm-4">
+        <div class="col-sm-10"><h2>Booking <b>Details</b>
+        </h2></div>
+        <div class="col-sm-2 text-end">
+            <a class="btn btn-primary "
+               href="@Url.Action("AddBooking", "Admin")">
+                <i class="fas fa-plus"></i>
+                Add New
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="table-title">
+    <div class="row">
+        <div class="col-sm-8">
             
+        </div>
+        <div class="col-sm-4 text-end">
+            @Html.ActionLink(
+                linkText: "All",
+                actionName: "Index",
+                controllerName: "Admin",
+                routeValues: new
+                     {
+                    applyFilter = false
+                })
+            @Html.ActionLink(
+                linkText: "Pending",
+                actionName: "Index",
+                controllerName: "Admin",
+                routeValues: new
+                     {
+                    status = BookingStatus.Pending,
+                    applyFilter = true
+                })
+            @Html.ActionLink(
+                linkText: "Confirmed",
+                actionName: "Index",
+                controllerName: "Admin",
+                routeValues: new
+                {
+                    status = BookingStatus.Confirmed,
+                    applyFilter = true
+                })
+            @Html.ActionLink(
+                linkText: "Closed",
+                actionName: "Index",
+                controllerName: "Admin",
+                routeValues: new
+                {
+                    status = BookingStatus.Closed,
+                    applyFilter = true
+                })            
+            @Html.ActionLink(
+                linkText: "Arrived",
+                actionName: "Index",
+                controllerName: "Admin",
+                routeValues: new
+                {
+                    status = BookingStatus.Arrived,
+                    applyFilter = true
+                })
         </div>
     </div>
 </div>
 
 <div class="table-responsive">
+   
     <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -46,25 +105,43 @@
                 <th>Name</th>
                 <th>PartySize</th>
                 <th>Email</th>
+                <th>Date</th>
                 <th>Phone</th>
                 <th>Status</th>
                 <th>Details</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        @foreach (BookingItem item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.PartySize</td>
-                <td>@item.Email</td>
-                <td>@item.Phone</td>
-                <td>@item.Status</td>
-                <td>@item.Details</td>
-            </tr>
-        }
-        
+            @foreach (BookingItem item in Model.BookingList)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.PartySize</td>
+                    <td>@item.Email</td>
+                    <td>@item.Date</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Status</td>
+                    <td>@item.Details</td>
+                    <td>
+                        <a class="btn btn-sm"
+                           href="@Url.Action("BookingDetail", "Admin", new {id = item.Id})">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                        <a class="btn btn-sm"
+                           href="@Url.Action("BookingEdit", "Admin", new {id = item.Id})">
+                           <i class="far fa-edit"></i></a>
+                    </td>
+
+                </tr>
+            }
+
         </tbody>
+        <tfoot>
+        <tr>
+            <td> <b>@Model.ItemCount Items</b>  </td>
+        </tr>
+        </tfoot>
     </table>
 </div>

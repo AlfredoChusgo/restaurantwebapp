@@ -1,0 +1,110 @@
+﻿@using Domain.Entities
+@using Domain.Enums
+@model Domain.Entities.BookingItem
+
+@{
+    ViewData["Title"] = "Booking Edit";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap mb-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        
+        <form method="post" action="@Url.Action("BookingUpdate", "Admin")">
+            <input type="hidden" class="form-control" id="id" name="id" value="@Model.Id" required="">
+            <div class="mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="@Model.Name" required="">
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" value="@Model.Email" required="">
+            </div>
+
+            <div class="mb-3">
+                <label for="partySize">Party size</label>
+                <select class="form-control" id="partySize" value="@Model.PartySize" name="partySize">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="date">Date</label>
+                <input class="form-control" type="datetime-local" data-val="true" data-val-required="The DateTime field is required." id="date" name="date" value="@Model.Date">
+            </div>
+
+            <div class="mb-3">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" value="@Model.Phone" required="">
+            </div>
+
+            <div class="mb-3">
+                <label for="status">Status</label>
+                <select class="form-control" value="@Model.Status" id="status">
+                    @if (Model.Status == BookingStatus.Pending)
+                    {
+                        <option selected value="0">Pending</option>
+                    }
+                    else
+                    {
+                        <option value="0">Pending</option>
+                    }
+
+                    @if (Model.Status == BookingStatus.Confirmed)
+                    {
+                <option selected value="1">Confirmed</option>
+                    }
+                    else
+                    {
+                <option value="1">Confirmed</option>
+                    }
+
+                    @if (Model.Status == BookingStatus.Closed)
+                    {
+                <option selected value="2">Closed</option>
+                    }
+                    else
+                    {
+                <option value="2">Closed</option>
+                    }
+
+                    @if (Model.Status == BookingStatus.Arrived)
+                    {
+                <option selected value="3">Arrived</option>
+                    }
+                    else
+                    {
+                <option value="3">Arrived</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="details">Detail</label>
+                <textarea class="form-control rounded-0" id="details" name="details" rows="3">@Model.Details</textarea>
+            </div>
+
+            <div class="">
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+
+        </form>
+        
+    </div>
+</div>

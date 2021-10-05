@@ -1,0 +1,80 @@
+﻿@using Domain.Entities
+@using Domain.Enums
+@model Domain.Entities.BookingItem
+
+@{
+    ViewData["Title"] = "Add New Booking";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap mb-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<div class="row">
+    <div class="col-6">
+
+        <form method="post" action="@Url.Action("AddBooking", "Admin")">
+            <input type="hidden" class="form-control" id="id" name="id" required="">
+            <div class="mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required="">
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" required="">
+            </div>
+
+            <div class="mb-3">
+                <label for="partySize">Party size</label>
+                <select class="form-control" id="partySize" name="partySize">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="status">Status</label>
+                <select class="form-control" id="status">
+                    <option value="0">Pending</option>
+                    <option value="1">Confirmed</option>
+                    <option value="2">Closed</option>
+                    <option value="3">Arrived</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="date">Date</label>
+                <input class="form-control"type="datetime-local" data-val="true" data-val-required="The DateTime field is required." id="date" name="date" value="@DateTime.Now">
+            </div>
+            
+
+            <div class="mb-3">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" required="">
+            </div>
+
+            <div class="mb-3">
+                <label for="details">Detail</label>
+                <textarea class="form-control rounded-0" id="details" name="details" rows="3"></textarea>
+            </div>
+
+            <div class="">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
