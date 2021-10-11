@@ -56,7 +56,9 @@
 
             <div class="mb-3">
                 <label for="status">Status</label>
-                <select class="form-control" value="@Model.Status" id="status">
+                @Html.DropDownListFor(model => model.Status, new SelectList(Enum.GetValues(typeof(BookingStatus))), "Select Status",new {@class="form-control"})
+
+                @*<select class="form-control" value="@Model.Status" id="status">
                     @if (Model.Status == BookingStatus.Pending)
                     {
                         <option selected value="0">Pending</option>
@@ -68,31 +70,31 @@
 
                     @if (Model.Status == BookingStatus.Confirmed)
                     {
-                <option selected value="1">Confirmed</option>
+                        <option selected value="1">Confirmed</option>
                     }
                     else
                     {
-                <option value="1">Confirmed</option>
+                        <option value="1">Confirmed</option>
                     }
 
                     @if (Model.Status == BookingStatus.Closed)
                     {
-                <option selected value="2">Closed</option>
+                        <option selected value="2">Closed</option>
                     }
                     else
                     {
-                <option value="2">Closed</option>
+                        <option value="2">Closed</option>
                     }
 
                     @if (Model.Status == BookingStatus.Arrived)
                     {
-                <option selected value="3">Arrived</option>
+                        <option selected value="3">Arrived</option>
                     }
                     else
                     {
-                <option value="3">Arrived</option>
+                        <option value="3">Arrived</option>
                     }
-                </select>
+                </select>*@
             </div>
 
             <div class="mb-3">

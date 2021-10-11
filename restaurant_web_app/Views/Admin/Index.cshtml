@@ -1,5 +1,6 @@
 ﻿@using Domain.Entities
 @using Domain.Enums
+@using restaurant_web_app.Enums
 @model Application.Booking.Queries.GetBookingsVm
 
 @{
@@ -27,6 +28,14 @@
     </div>
 </div>
 
+@if (Model.AlertData.ShowAlert)
+{
+<div class="alert @(Model.AlertData.CssClass) alert-dismissible fade show" role="alert">
+    <strong>@(Model.AlertData.Tittle)</strong> @(Model.AlertData.Description)
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+}
+
 
 <div class ="table-title">
     <div class="row">
@@ -53,7 +62,8 @@
                 actionName: "Index",
                 controllerName: "Admin",
                 routeValues: new
-                     {
+                {
+                    action = ActionType.Info,
                     applyFilter = false
                 })
             @Html.ActionLink(
@@ -63,6 +73,7 @@
                 routeValues: new
                      {
                     status = BookingStatus.Pending,
+                         action = ActionType.Info,
                     applyFilter = true
                 })
             @Html.ActionLink(
@@ -72,6 +83,7 @@
                 routeValues: new
                 {
                     status = BookingStatus.Confirmed,
+                    action = ActionType.Info,
                     applyFilter = true
                 })
             @Html.ActionLink(
@@ -90,6 +102,7 @@
                 routeValues: new
                 {
                     status = BookingStatus.Arrived,
+                    action = ActionType.Info,
                     applyFilter = true
                 })
         </div>
@@ -131,7 +144,10 @@
                         </a>
                         <a class="btn btn-sm"
                            href="@Url.Action("BookingEdit", "Admin", new {id = item.Id})">
-                           <i class="far fa-edit"></i></a>
+                            <i class="far fa-edit"></i></a>
+                        <a class="btn btn-sm"
+                           href="@Url.Action("DeleteBooking", "Admin", new {id = item.Id})">
+                            <i class="fas fa-trash-alt"></i></a>
                     </td>
 
                 </tr>
