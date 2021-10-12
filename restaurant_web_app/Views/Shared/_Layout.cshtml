@@ -1,48 +1,1234 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - restaurant_web_app</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8">
+    <title>shangrila Restaurant Html5 Template | Homepage</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+    <link href="plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+    <link href="plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--Color Switcher Mockup-->
+    <link href="css/color-switcher-design.css" rel="stylesheet">
+
+    <!--Color Themes-->
+    <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">restaurant_web_app</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- Main Header-->
+        <header class="main-header">
+
+            <!--Header Top-->
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="top-inner">
+                        <div class="clearfix">
+                            <div class="top-left">
+                                <ul class="clearfix">
+                                    <li><span class="fa fa-phone"></span>00-000-0000</li>
+                                    <li><span class="fa fa-phone"></span>99-999-9999</li>
+                                    <li class="email"><a href="#"><span class="icon fa fa-envelope-o"></span>helpteam@shangrila.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="top-right clearfix">
+                                <ul class="clearfix">
+                                    <li><a href="#"><span class="icon flaticon-web-log-in"></span>Sign In</a></li>
+                                    <li><a href="#"><span class="icon flaticon-file-1"></span>Register</a></li>
+                                    <li class="language dropdown">
+                                        <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span class="flag-icon"><img src="images/icons/flag-icon.png" alt="" /></span>En &nbsp;<span class="arrow-icon fa fa-angle-down"></span></a>
+                                        <ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu1">
+                                            <li><a href="#">Arabic</a></li>
+                                            <li><a href="#">China</a></li>
+                                            <li><a href="#">German</a></li>
+                                            <li><a href="#">French</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Header-Upper-->
+            <div class="header-upper">
+                <div class="auto-container clearfix">
+
+                    <div class="pull-left logo-outer">
+                        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+                    </div>
+
+                    <div class="pull-right upper-right clearfix">
+
+                        <div class="nav-outer clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-md">
+                                <div class="navbar-header">
+                                    <!-- Toggle Button -->
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="current dropdown">
+                                            <a href="#">Home</a>
+                                            <ul>
+                                                <li><a href="index.html">Homepage One</a></li>
+                                                <li><a href="index-2.html">Homepage Two</a></li>
+                                                <li><a href="index-3.html">Homepage Three</a></li>
+                                                <li><a href="index-4.html">Homepage Four</a></li>
+                                                <li><a href="index-5.html">Homepage Five</a></li>
+                                                <li><a href="index-6.html">Homepage Six</a></li>
+                                                <li><a href="index-7.html">Homepage Seven</a></li>
+                                                <li><a href="index-8.html">Homepage Eight</a></li>
+                                                <li><a href="index-9.html">Homepage Nine</a></li>
+                                                <li><a href="index-10.html">Homepage Ten</a></li>
+                                                <li class="dropdown">
+                                                    <a href="#">Headers Style</a>
+                                                    <ul>
+                                                        <li><a href="index.html">Header Style One</a></li>
+                                                        <li><a href="index-2.html">Header Style Two</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">About</a>
+                                            <ul>
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="error-page.html">Error Page</a></li>
+                                                <li><a href="comming-soon.html">Comming Soon</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Reservation</a>
+                                            <ul>
+                                                <li><a href="reservation.html">Reservation</a></li>
+                                                <li><a href="reservation-2.html">Reservation Two</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Menu</a>
+                                            <ul>
+                                                <li><a href="menu-grid.html">Menu Grid</a></li>
+                                                <li><a href="menu-list.html">Menu List</a></li>
+                                                <li><a href="menu-classic.html">Menu Classic</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Gallery</a>
+                                            <ul>
+                                                <li><a href="gallery.html">Gallery</a></li>
+                                                <li><a href="gallery-two.html">Gallery Two</a></li>
+                                                <li><a href="gallery-single.html">Gallery Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Blog</a>
+                                            <ul>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-single.html">Blog Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Shop</a>
+                                            <ul>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-single.html">Shop Single</a></li>
+                                                <li><a href="shoping-cart.html">Shopping Cart</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="account.html">My Account</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+
+                            <!-- Main Menu End-->
+                            <div class="outer-box">
+                                <!--Search Box-->
+                                <div class="search-box-outer">
+                                    <div class="dropdown">
+                                        <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
+                                        <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
+                                            <li class="panel-outer">
+                                                <div class="form-container">
+                                                    <form method="post" action="blog.html">
+                                                        <div class="form-group">
+                                                            <input type="search" name="field-name" value="" placeholder="Search Here" required>
+                                                            <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="reservation-form-btn"><span class="icon flaticon-menu-options"></span></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--End Header Upper-->
+            <!--Sticky Header-->
+            <div class="sticky-header">
+                <div class="auto-container clearfix">
+                    <!--Logo-->
+                    <div class="logo pull-left">
+                        <a href="index.html" class="img-responsive"><img src="images/logo-small.png" alt="" title=""></a>
+                    </div>
+
+                    <!--Right Col-->
+                    <div class="right-col pull-right">
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-md">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+                                <ul class="navigation clearfix">
+                                    <li class="current dropdown">
+                                        <a href="#">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Homepage One</a></li>
+                                            <li><a href="index-2.html">Homepage Two</a></li>
+                                            <li><a href="index-3.html">Homepage Three</a></li>
+                                            <li><a href="index-4.html">Homepage Four</a></li>
+                                            <li><a href="index-5.html">Homepage Five</a></li>
+                                            <li><a href="index-6.html">Homepage Six</a></li>
+                                            <li><a href="index-7.html">Homepage Seven</a></li>
+                                            <li><a href="index-8.html">Homepage Eight</a></li>
+                                            <li><a href="index-9.html">Homepage Nine</a></li>
+                                            <li><a href="index-10.html">Homepage Ten</a></li>
+                                            <li class="dropdown">
+                                                <a href="#">Headers Style</a>
+                                                <ul>
+                                                    <li><a href="index.html">Header Style One</a></li>
+                                                    <li><a href="index-2.html">Header Style Two</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">About</a>
+                                        <ul>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="error-page.html">Error Page</a></li>
+                                            <li><a href="comming-soon.html">Comming Soon</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Reservation</a>
+                                        <ul>
+                                            <li><a href="reservation.html">Reservation</a></li>
+                                            <li><a href="reservation-2.html">Reservation Two</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Menu</a>
+                                        <ul>
+                                            <li><a href="menu-grid.html">Menu Grid</a></li>
+                                            <li><a href="menu-list.html">Menu List</a></li>
+                                            <li><a href="menu-classic.html">Menu Classic</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Gallery</a>
+                                        <ul>
+                                            <li><a href="gallery.html">Gallery</a></li>
+                                            <li><a href="gallery-two.html">Gallery Two</a></li>
+                                            <li><a href="gallery-single.html">Gallery Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Blog</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Shop</a>
+                                        <ul>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="shop-single.html">Shop Single</a></li>
+                                            <li><a href="shoping-cart.html">Shopping Cart</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="account.html">My Account</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav><!-- Main Menu End-->
+                    </div>
+
+                </div>
+            </div>
+            <!--End Sticky Header-->
+
+        </header>
+        <!--End Main Header -->
+        <!--Form Back Drop-->
+        <div class="form-back-drop"></div>
+        <!--Consulting Form-->
+        <section class="consulting-form">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="flaticon-cancel-1"></span></div>
+                <div class="logo">
+                    <a href="#"><img src="images/logo.png" alt="" /></a>
+                </div>
+                <div class="title">
+                    <h2>Free Consultation</h2>
+                    <div class="separator"></div>
+                </div>
+
+                <!--Consult Form-->
+                <div class="consult-form">
+                    <form method="post" action="contact.html">
+
+                        <div class="form-group">
+                            <input type="text" name="text" value="" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" value="" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="theme-btn btn-style-one">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!--Btns Box-->
+                <div class="btns-box">
+                    <a href="#" class="signin-btn theme-btn"><span class="icon flaticon-web-log-in"></span> Sign In</a>
+                    <span class="or">or</span>
+                    <a href="#" class="signup-btn theme-btn"><span class="icon flaticon-edit"></span> Sign Up</a>
+                </div>
+
+            </div>
+        </section>
+        <!--End Consulting Form-->
+        <!--Main Slider-->
+        @RenderBody()
+        <section class="main-slider">
+
+            <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
+                <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
+                    <ul>
+
+                        <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/image-1.jpg" data-title="Slide Title" data-transition="parallaxvertical">
+                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/main-slider/image-1.jpg">
+
+                            <div class="tp-caption"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-responsive_offset="on"
+                                 data-type="text"
+                                 data-height="none"
+                                 data-width="['800','650','550','420']"
+                                 data-whitespace="normal"
+                                 data-hoffset="['0','0','0','0']"
+                                 data-voffset="['-90','-100','-100','-85']"
+                                 data-x="['center','center','center','center']"
+                                 data-y="['middle','middle','middle','middle']"
+                                 data-textalign="['top','top','top','top']"
+                                 data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 7; white-space: nowrap;">
+                                <h2 class="text-center"><span>Welcome</span> shangrila Restaurant</h2>
+                            </div>
+
+                            <div class="tp-caption"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-responsive_offset="on"
+                                 data-type="text"
+                                 data-height="none"
+                                 data-width="['550','550','550','420']"
+                                 data-whitespace="normal"
+                                 data-hoffset="['0','0','0','0']"
+                                 data-voffset="['60','35','25','10']"
+                                 data-x="['center','center','center','center']"
+                                 data-y="['middle','middle','middle','middle']"
+                                 data-textalign="['top','top','top','top']"
+                                 data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 7; white-space: nowrap;">
+                                <div class="text text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac cusantium doloremque laudantium.</div>
+                            </div>
+
+                            <div class="tp-caption tp-resizeme"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-responsive_offset="on"
+                                 data-type="text"
+                                 data-height="none"
+                                 data-width="['550','550','550','420']"
+                                 data-whitespace="normal"
+                                 data-hoffset="['0','0','0','0']"
+                                 data-voffset="['150','130','130','110']"
+                                 data-x="['center','center','center','center']"
+                                 data-y="['middle','middle','middle','middle']"
+                                 data-textalign="['top','top','top','top']"
+                                 data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 7; white-space: nowrap;">
+                                <div class="btns-box text-center">
+                                    <a href="about.html" class="theme-btn btn-style-one">Read More</a>
+                                </div>
+                            </div>
+
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+
+                        <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1687" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/image-2.jpg" data-title="Slide Title" data-transition="parallaxvertical">
+                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/main-slider/image-2.jpg">
+
+                            <div class="tp-caption"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-responsive_offset="on"
+                                 data-type="text"
+                                 data-height="none"
+                                 data-width="['800','650','550','420']"
+                                 data-whitespace="normal"
+                                 data-hoffset="['0','0','0','0']"
+                                 data-voffset="['-90','-100','-100','-85']"
+                                 data-x="['center','center','center','center']"
+                                 data-y="['middle','middle','middle','middle']"
+                                 data-textalign="['top','top','top','top']"
+                                 data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 7; white-space: nowrap;">
+                                <h2 class="text-center"><span>Welcome</span> shangrila Restaurant</h2>
+                            </div>
+
+                            <div class="tp-caption"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-responsive_offset="on"
+                                 data-type="text"
+                                 data-height="none"
+                                 data-width="['550','550','550','420']"
+                                 data-whitespace="normal"
+                                 data-hoffset="['0','0','0','0']"
+                                 data-voffset="['60','35','25','10']"
+                                 data-x="['center','center','center','center']"
+                                 data-y="['middle','middle','middle','middle']"
+                                 data-textalign="['top','top','top','top']"
+                                 data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 7; white-space: nowrap;">
+                                <div class="text text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac cusantium doloremque laudantium.</div>
+                            </div>
+
+                            <div class="tp-caption tp-resizeme"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-responsive_offset="on"
+                                 data-type="text"
+                                 data-height="none"
+                                 data-width="['550','550','550','420']"
+                                 data-whitespace="normal"
+                                 data-hoffset="['0','0','0','0']"
+                                 data-voffset="['150','130','130','110']"
+                                 data-x="['center','center','center','center']"
+                                 data-y="['middle','middle','middle','middle']"
+                                 data-textalign="['top','top','top','top']"
+                                 data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 7; white-space: nowrap;">
+                                <div class="btns-box text-center">
+                                    <a href="about.html" class="theme-btn btn-style-one">Read More</a>
+                                </div>
+                            </div>
+
                         </li>
+
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </section>
+        <!--End Main Slider-->
+        <!--Delicious Section-->
+        <section class="delicius-section">
+            <div class="auto-container">
+                <!--Sec Title-->
+                <div class="sec-title centered">
+                    <h2>Our Delicious</h2>
+                    <div class="title">Magical Experience</div>
+                    <div class="separator"></div>
+                </div>
+
+                <div class="row clearfix">
+
+                    <!--Delicious Block-->
+                    <div class="delicious-block col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-box">
+                            <div class="row clearfix">
+                                <!--Image Column-->
+                                <div class="image-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="image">
+                                        <img src="images/resource/delicious_1.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <!--Content Column-->
+                                <div class="content-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="inner-column">
+                                        <h3><a href="#">Break Fast</a></h3>
+                                        <div class="text">Lorem ipsum dolor sit amet edit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</div>
+                                        <a href="shop-single.html" class="theme-btn btn-style-two">Order Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Delicious Block-->
+                    <div class="delicious-block col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-box">
+                            <div class="row clearfix">
+                                <!--Image Column-->
+                                <div class="image-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="image">
+                                        <img src="images/resource/delicious_2.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <!--Content Column-->
+                                <div class="content-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="inner-column">
+                                        <h3><a href="#">Delicious Lunch</a></h3>
+                                        <div class="text">Lorem ipsum dolor sit amet edit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</div>
+                                        <a href="shop-single.html" class="theme-btn btn-style-two">Order Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Delicious Block-->
+                    <div class="delicious-block col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-box">
+                            <div class="row clearfix">
+                                <!--Image Column-->
+                                <div class="image-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="image">
+                                        <img src="images/resource/delicious_3.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <!--Content Column-->
+                                <div class="content-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="inner-column">
+                                        <h3><a href="#">Dinner</a></h3>
+                                        <div class="text">Lorem ipsum dolor sit amet edit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</div>
+                                        <a href="shop-single.html" class="theme-btn btn-style-two">Order Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Delicious Block-->
+                    <div class="delicious-block col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-box">
+                            <div class="row clearfix">
+                                <!--Image Column-->
+                                <div class="image-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="image">
+                                        <img src="images/resource/delicious_4.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <!--Content Column-->
+                                <div class="content-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="inner-column">
+                                        <h3><a href="#">Desserts</a></h3>
+                                        <div class="text">Lorem ipsum dolor sit amet edit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</div>
+                                        <a href="shop-single.html" class="theme-btn btn-style-two">Order Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Delicious Section -->
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="auto-container">
+
+                <!--Sec Title-->
+                <div class="sec-title centered">
+                    <h2>Food Gallery</h2>
+                    <div class="title">We Create Delicous Memory</div>
+                    <div class="separator"></div>
+                </div>
+
+            </div>
+            <div class="clearfix">
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/1.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/1.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/2.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/2.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/3.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/3.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/4.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/4.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/5.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/5.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/6.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/6.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/7.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/7.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Gallery Block-->
+                <div class="gallery-block col-lg-3 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="images/gallery/8.jpg" alt="" />
+                            <div class="overlay-box">
+                                <a href="images/gallery/8.jpg" class="plus-icon lightbox-image" data-fancybox="images" data-caption=""><span class="icon flaticon-plus"></span></a>
+                                <div class="content clearfix">
+                                    <h3><a href="gallery-single.html">Spicy Dinner</a></h3>
+                                    <div class="category">Chicken</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!--End Gallery Section-->
+        <!--chefs Team-->
+        <section class="chefs-section">
+            <div class="auto-container">
+                <!--Sec Title-->
+                <div class="sec-title centered">
+                    <h2>Our Delicious</h2>
+                    <div class="title">Meet Our Passionate Chefs</div>
+                    <div class="separator"></div>
+                </div>
+
+                <div class="three-item-corousel owl-carousel owl-theme">
+
+                    <!--Chef Member-->
+                    <div class="chef-member">
+                        <div class="inner-box">
+                            <!--Image Box-->
+                            <div class="image-box">
+                                <!--Image-->
+                                <figure class="image">
+                                    <img src="images/resource/chef-1.jpg" alt="" />
+                                </figure>
+                                <!--Overlay Box-->
+                                <div class="overlay-box">
+                                    <div class="inner">
+                                        <!--Social Icon One-->
+                                        <ul class="social-icon-one">
+                                            <li><a class="fa fa-facebook" href="#"></a></li>
+                                            <li><a class="fa fa-twitter" href="#"></a></li>
+                                            <li><a class="fa fa-linkedin" href="#"></a></li>
+                                            <li><a class="fa fa-instagram" href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Lower Content-->
+                            <div class="lower-content">
+                                <h3>Rick Grimes</h3>
+                                <div class="designation">Cheef Cook</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Chef Member-->
+                    <div class="chef-member">
+                        <div class="inner-box">
+                            <!--Image Box-->
+                            <div class="image-box">
+                                <!--Image-->
+                                <figure class="image">
+                                    <img src="images/resource/chef-2.jpg" alt="" />
+                                </figure>
+                                <!--Overlay Box-->
+                                <div class="overlay-box">
+                                    <div class="inner">
+                                        <!--Social Icon One-->
+                                        <ul class="social-icon-one">
+                                            <li><a class="fa fa-facebook" href="#"></a></li>
+                                            <li><a class="fa fa-twitter" href="#"></a></li>
+                                            <li><a class="fa fa-linkedin" href="#"></a></li>
+                                            <li><a class="fa fa-instagram" href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Lower Content-->
+                            <div class="lower-content">
+                                <h3>ELena Gilbert</h3>
+                                <div class="designation">Master Chef & Founder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Chef Member-->
+                    <div class="chef-member">
+                        <div class="inner-box">
+                            <!--Image Box-->
+                            <div class="image-box">
+                                <!--Image-->
+                                <figure class="image">
+                                    <img src="images/resource/chef-3.jpg" alt="" />
+                                </figure>
+                                <!--Overlay Box-->
+                                <div class="overlay-box">
+                                    <div class="inner">
+                                        <!--Social Icon One-->
+                                        <ul class="social-icon-one">
+                                            <li><a class="fa fa-facebook" href="#"></a></li>
+                                            <li><a class="fa fa-twitter" href="#"></a></li>
+                                            <li><a class="fa fa-linkedin" href="#"></a></li>
+                                            <li><a class="fa fa-instagram" href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Lower Content-->
+                            <div class="lower-content">
+                                <h3>Rick Grimes</h3>
+                                <div class="designation">Cheef Cook</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!--End chefs Team-->
+        <!--Call To Action-->
+        <section class="call-to-action" style="background-image:url(images/background/2.jpg);">
+            <div class="auto-container">
+                <h2>Enjoy Together</h2>
+            </div>
+        </section>
+        <!--End Call To Action-->
+        <!--Reservation Section-->
+        <section class="reservation-section">
+            <div class="auto-container">
+                <!--Sec Title-->
+                <div class="sec-title centered">
+                    <h2>Reservation</h2>
+                    <div class="title">Magical  Experience</div>
+                    <div class="separator"></div>
+                </div>
+
+                <!--Reserve Form-->
+                <div class="reserve-form">
+                    <form method="post" action="contact.html">
+                        <div class="row clearfix">
+
+                            <!--Column-->
+                            <div class="column col-lg-4 col-md-6 col-sm-12">
+                                <!--Form Group-->
+                                <div class="form-group">
+                                    <label class="fa fa-calendar"></label>
+                                    <select class="custom-select-box">
+                                        <option>15/10/2016</option>
+                                        <option>16/10/2016</option>
+                                        <option>17/10/2016</option>
+                                        <option>18/10/2016</option>
+                                        <option>19/10/2016</option>
+                                        <option>20/10/2016</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Column-->
+                            <div class="column col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="fa fa-clock-o"></label>
+                                    <select class="custom-select-box">
+                                        <option>5:00 PM</option>
+                                        <option>6:00 PM</option>
+                                        <option>7:00 PM</option>
+                                        <option>8:00 PM</option>
+                                        <option>9:00 PM</option>
+                                        <option>10:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Column-->
+                            <div class="column col-lg-4 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label class="fa fa-users"></label>
+                                    <select class="custom-select-box">
+                                        <option>1 Guests</option>
+                                        <option>2 Guests</option>
+                                        <option>3 Guests</option>
+                                        <option>4 Guests</option>
+                                        <option>5 Guests</option>
+                                        <option>6 Guests</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Column-->
+                            <div class="column text-center col-lg-12 col-md-12 col-sm-12">
+                                <button href="#" class="theme-btn btn-style-one">Find A Table</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!--End Reservation Section-->
+        <!--Testimonial Section-->
+        <section class="testimonial-section">
+            <div class="auto-container">
+                <div class="single-item-carousel owl-carousel owl-theme">
+
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+
+                            <div class="upper-box">
+                                <div class="image">
+                                    <img src="images/resource/chef-thumb.jpg" alt="" />
+                                </div>
+                                <div class="quote-icon">
+                                    <span class="icon flaticon-left-quote-1"></span>
+                                </div>
+                            </div>
+                            <div class="text">Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products hereas parallel platforms holisticly predominate.</div>
+                            <div class="author">Michale Joe</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+
+                            <div class="upper-box">
+                                <div class="image">
+                                    <img src="images/resource/chef-thumb.jpg" alt="" />
+                                </div>
+                                <div class="quote-icon">
+                                    <span class="icon flaticon-left-quote-1"></span>
+                                </div>
+                            </div>
+                            <div class="text">Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products hereas parallel platforms holisticly predominate.</div>
+                            <div class="author">Michale Joe</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+
+                            <div class="upper-box">
+                                <div class="image">
+                                    <img src="images/resource/chef-thumb.jpg" alt="" />
+                                </div>
+                                <div class="quote-icon">
+                                    <span class="icon flaticon-left-quote-1"></span>
+                                </div>
+                            </div>
+                            <div class="text">Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products hereas parallel platforms holisticly predominate.</div>
+                            <div class="author">Michale Joe</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--End Testimonial Section-->
+        <!--News Blog Section-->
+        <section class="news-section">
+            <div class="auto-container">
+                <div class="sec-title centered">
+                    <h2>Our Blog</h2>
+                    <div class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, toed ut perspiciatis under.</div>
+                    <div class="separator"></div>
+                </div>
+
+                <div class="row clearfix">
+                    <!--News Block-->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-single.html"><img src="images/resource/news-1.jpg" alt="" /></a>
+                            </figure>
+                            <div class="lower-content">
+                                <h3><a href="blog-single.html">Ingredients For Cooking Pasta</a></h3>
+                                <div class="meta">10 June 2016  by <span>Peter Parker</span></div>
+                                <div class="text">Curabitur quas nets lacusets nulat iaculis loremis etis nisle varius vitae seditum fugiatum ligul aliquam qui sequi nets lacusets nulat </div>
+                                <div class="lower-box clearfix">
+                                    <div class="read-more pull-left"><a href="blog-single.html">Read More</a></div>
+                                    <div class="likes pull-right"><a href="blog-single.html"><span>10</span> Likes</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--News Block-->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-single.html"><img src="images/resource/news-2.jpg" alt="" /></a>
+                            </figure>
+                            <div class="lower-content">
+                                <h3><a href="blog-single.html">The Best Tips For Tasty Food</a></h3>
+                                <div class="meta">10 June 2016  by <span>Peter Parker</span></div>
+                                <div class="text">Curabitur quas nets lacusets nulat iaculis loremis etis nisle varius vitae seditum fugiatum ligul aliquam qui sequi nets lacusets nulat </div>
+                                <div class="lower-box clearfix">
+                                    <div class="read-more pull-left"><a href="blog-single.html">Read More</a></div>
+                                    <div class="likes pull-right"><a href="blog-single.html"><span>10</span> Likes</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--News Block-->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-single.html"><img src="images/resource/news-3.jpg" alt="" /></a>
+                            </figure>
+                            <div class="lower-content">
+                                <h3><a href="blog-single.html">Your Weeknight Dinner Plan</a></h3>
+                                <div class="meta">10 June 2016  by <span>Peter Parker</span></div>
+                                <div class="text">Curabitur quas nets lacusets nulat iaculis loremis etis nisle varius vitae seditum fugiatum ligul aliquam qui sequi nets lacusets nulat </div>
+                                <div class="lower-box clearfix">
+                                    <div class="read-more pull-left"><a href="blog-single.html">Read More</a></div>
+                                    <div class="likes pull-right"><a href="blog-single.html"><span>10</span> Likes</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!--End News Blog Section-->
+        <!--Main Footer-->
+        <footer class="main-footer">
+            <div class="auto-container">
+                <!--Widgets Section-->
+                <div class="widgets-section">
+                    <div class="row clearfix">
+
+                        <!--big column-->
+                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget link-widget">
+                                        <div class="footer-title">
+                                            <h2>Usefull Links</h2>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul class="list-links">
+                                            <li><a href="#">shangrila Overview</a></li>
+                                            <li><a href="#">How to Buy Online</a></li>
+                                            <li><a href="#">Payment Options</a></li>
+                                            <li><a href="#">Legal & security</a></li>
+                                            <li><a href="#">Refund Policy</a></li>
+                                            <li><a href="#">Contact Center</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget link-widget">
+                                        <div class="footer-title">
+                                            <h2>Our Services</h2>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul class="list-links">
+                                            <li><a href="#">Transaction</a></li>
+                                            <li><a href="#">Exchange</a></li>
+                                            <li><a href="#">Investments</a></li>
+                                            <li><a href="#">Shopping</a></li>
+                                            <li><a href="#">Escrow Service</a></li>
+                                            <li><a href="#">Fantales</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--big column-->
+                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget info-widget">
+                                        <div class="footer-title">
+                                            <h2>Get In Touch</h2>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul class="info-list">
+                                            <li><span>Email:</span>Supportteam@shangrila.com</li>
+                                            <li><span>Phone:</span>Tollfree: 888-7010-7010</li>
+                                            <li><span>Address:</span>203, Envato Labs, Behind Alis Str, <br> Melbourne, Australia.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget info-widget">
+                                        <div class="footer-title">
+                                            <h2>We Are Social</h2>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul class="social-links">
+                                            <li><a href="#"><span class="fa fa-facebook"></span> Facebook</a></li>
+                                            <li><a href="#"><span class="fa fa-twitter"></span> Twitter</a></li>
+                                            <li><a href="#"><span class="fa fa-linkedin"></span> Linkedin</a></li>
+                                            <li><a href="#"><span class="fa fa-pinterest-p"></span> Pinterest</a></li>
+                                            <li><a href="#"><span class="fa fa-rss"></span> RSS Feed</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Footer Nav Links-->
+                <div class="footer-nav-links">
+                    <ul class="footer-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="how-it-works.html">How it Works</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="copyright">Copyrights &copy; 2018 All Rights Reserved by <a href="#">shangrila</a></div>
+                        </div>
+                        <div class="cards-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="cards">
+                                <img src="images/resource/cards.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!--End pagewrapper-->
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-double-up"></span></div>
+
+    <!-- Color Palate / Color Switcher -->
+    <div class="color-palate">
+        <div class="color-trigger">
+            <i class="fa fa-gear zoom-fade"></i>
+        </div>
+        <div class="color-palate-head">
+            <h6>Choose Your Color</h6>
+        </div>
+        <div class="various-color clearfix">
+            <div class="colors-list">
+                <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
+                <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
+                <span class="palate blue-color" data-theme-file="css/color-themes/blue-theme.css"></span>
+                <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
+                <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
+                <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
+                <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
+                <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
+                <span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
+                <span class="palate yellow-color" data-theme-file="css/color-themes/yellow-theme.css"></span>
+                <span class="palate pink-color" data-theme-file="css/color-themes/pink-theme.css"></span>
+                <span class="palate hotpink-color" data-theme-file="css/color-themes/hotpink-color.css"></span>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - restaurant_web_app - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!--Revolution Slider-->
+    <script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="js/main-slider-script.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/widget.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/color-settings.js"></script>
+
 </body>
 </html>

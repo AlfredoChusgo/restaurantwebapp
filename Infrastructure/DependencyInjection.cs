@@ -28,7 +28,7 @@ namespace Infrastructure
             //            configuration.GetConnectionString("DefaultConnection"),
             //            b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
             //}
-            string connectionString = configuration.GetConnectionString("DevConnection");
+            string connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)),ServiceLifetime.Transient);
 
