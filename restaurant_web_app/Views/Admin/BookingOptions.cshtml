@@ -1,4 +1,6 @@
-﻿
+﻿@using Application.BookingOptions.Queries
+@using Domain.Entities
+@model restaurant_web_app.ViewModels.BookingOptionsViewModel
 @{
     ViewData["Title"] = "Booking Options";
 }
@@ -13,66 +15,33 @@
 <div class="container">
     <form>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            @Html.LabelFor(m => m.BookingOptions.MinPartySize)
+            @Html.DropDownListFor(m => m.BookingOptions.MinPartySize,
+                Model.SelectListMinPartySizeOptions, "", new { @class = "form-control" })
         </div>
 
         <div class="form-group">
-            <label for="minPartySizeSelect">Min party size</label>
-            <select class="form-control" id="minPartySizeSelect">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
+            @Html.LabelFor(m => m.BookingOptions.MaxPartySize)
+            @Html.DropDownListFor(m => m.BookingOptions.MaxPartySize,
+                Model.SelectListMaxPartySizeOptions, "", new { @class = "form-control" })
         </div>
 
         <div class="form-group">
-            <label for="maxPartySizeSelect">Max party size</label>
-            <select class="form-control" id="maxPartySizeSelect">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
+            @Html.LabelFor(m => m.BookingOptions.EarlyBooking)
+            @Html.DropDownListFor(m => m.BookingOptions.EarlyBooking,
+                Model.SelectListEarlyBookingOptions, "", new { @class = "form-control" })
         </div>
-
+        
         <div class="form-group">
-            <label for="selectStatus">status</label>
-            <select class="form-control" id="selectStatus">
-                <option value="1">Pending</option>
-                <option value="2">Confirmed</option>
-                <option value="3">Closed</option>
-                <option value="4">Arrived</option>
-            </select>
+            @Html.LabelFor(m => m.BookingOptions.LateBooking)
+            @Html.DropDownListFor(m => m.BookingOptions.LateBooking,
+                Model.SelectListLateBookingOptions, "", new { @class = "form-control" })
         </div>
-
-        <button type="submit" class="btn btn-primary">Save</button>
+        
+        <div class="btn">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        
     </form>
 
 </div>

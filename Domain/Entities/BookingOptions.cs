@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class BookingOptions
+    public class BookingOptions
     {
         public int MinPartySize { get; set; }
         public int MaxPartySize { get; set; }
-        public int TimeInterval { get; set; }
+        public int EarlyBooking { get; set; }
+        public int LateBooking { get; set; }
 
     }
 }

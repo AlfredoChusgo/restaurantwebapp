@@ -4,14 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Booking.Commands;
 using Application.Booking.Queries;
+using Application.BookingOptions.Queries;
 using Application.Common.Interfaces;
 using Domain.Entities;
 using Domain.Enums;
 using Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using restaurant_web_app.BussinessLogicLayer.BookingOptionsRazorHelper;
 using restaurant_web_app.Enums;
+using restaurant_web_app.ViewModels;
 
 namespace restaurant_web_app.Controllers
 {
@@ -53,9 +57,13 @@ namespace restaurant_web_app.Controllers
             return View("Index",bookingVm);
         }
 
-        public IActionResult BookingOptions()
+        public async Task<IActionResult> BookingOptions()
         {
-            return View();
+            BookingOptionsVm vm = await Mediator.Send(new GetBookingOptionsQuery());
+            
+            BookingOptionsViewModel viewModel = new BookingOptionsViewModel(vm);
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> BookingEdit(int id)
