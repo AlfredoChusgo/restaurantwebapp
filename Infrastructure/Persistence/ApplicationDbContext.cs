@@ -27,6 +27,11 @@ namespace Infrastructure.Persistence
         //    optionsBuilder.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
         //}
         public DbSet<BookingItem> BookingItems { get; set; }
+        public DbSet<BasicBookingScheduleRule> BasicBookingScheduleRules { get; set; }
+
+        //public DbSet<SchedulingBookingRule> SchedulingBookingRule { get; set; }
+
+        public DbSet<SchedulingExceptionBookingRule> SchedulingExceptionBookingRule { get; set; }
         //public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         //{
         //    throw new NotImplementedException();
@@ -35,6 +40,9 @@ namespace Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookingItem>().ToTable("BookingItems");
+            modelBuilder.Entity<BasicBookingScheduleRule>().ToTable("BasicBookingScheduleRules");
+            //modelBuilder.Entity<SchedulingBookingRule>().ToTable("SchedulingBookingRules");
+            //modelBuilder.Entity<SchedulingExceptionBookingRule>().ToTable("SchedulingExceptionBookingRules");
         }
     }
 }

@@ -15,7 +15,7 @@ namespace restaurant_web_app.BussinessLogicLayer.BookingOptionsRazorHelper
                 dropDownItemInfo.DropDownDictionary.Select(x =>
                     new { Value = x.Key, Text = x.Value })
                 , "Value", "Text", dropDownItemInfo.Label);
-
+            
             return selectListHelper;
         }
     }

@@ -1,0 +1,122 @@
+﻿@using Application.BookingOptions.Queries
+@using Domain.Entities
+@model restaurant_web_app.ViewModels.BasicBookingOptionRuleViewModel
+@{
+    ViewData["Title"] = "Basic Scheduling Rule";
+}
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+
+
+<div class="container">
+    <div class="row  ">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <form method="post" action="@Url.Action("UpdateBookingBasicBookingSchedulerRule", "Admin")">
+                    <div class="row">
+                        choose what times each week your restaurant is available to book reservations
+                    </div>
+                    @Html.HiddenFor(e=>e.BasicBookingScheduleRule.Id)
+                    <div class="row">
+                        <div class="col-10 p-3">
+                            <div class="row ">
+                                <div class="col-12">
+                                    <div class="row p-2">
+                                        <i class="far fa-calendar"><b> Weekly</b></i>
+                                    </div>
+                                    <div class="row p-2">
+                                        <i>Days of the week</i>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col">
+
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.MondaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.MondaySelected, "Mon")
+                                        </div>
+
+                                        <div class="col">
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.TuesdaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.TuesdaySelected, "Tu")
+                                        </div>
+
+                                        <div class="col">
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.WednesdaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.WednesdaySelected, "We")
+
+                                        </div>
+
+                                        <div class="col">
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.ThursdaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.ThursdaySelected, "Th")
+
+                                        </div>
+
+                                        <div class="col">
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.FridaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.FridaySelected, "Fr")
+
+                                        </div>
+
+                                        <div class="col">
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.SaturdaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.SaturdaySelected, "Sa")
+
+                                        </div>
+
+                                        <div class="col">
+                                            @Html.CheckBoxFor(e => e.BasicBookingScheduleRule.SundaySelected, new { @class = "form-check" })
+                                            @Html.LabelFor(e => e.BasicBookingScheduleRule.SundaySelected, "Su")
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class-="row">
+                        <div class="col-10">
+
+                            <div class="row p-3">
+                                <i class="far fa-clock"><b> Time</b></i>
+                            </div>
+
+                            <div class="row p-3">
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.LabelFor(e => e.BasicBookingScheduleRule.StartTimeId, "Start Time");
+                                        @Html.DropDownListFor(e => e.BasicBookingScheduleRule.StartTimeId, Model.SelectStartTimeBookingRule, "Select Start Time", new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.LabelFor(e => e.BasicBookingScheduleRule.EndTimeId, "End Time");
+                                        @Html.DropDownListFor(e => e.BasicBookingScheduleRule.EndTimeId, Model.SelectEndTimeBookingRule, "Select End Time", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-outline-dark ">Update</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+        
+
+
+    </div>
+ 
+</div>

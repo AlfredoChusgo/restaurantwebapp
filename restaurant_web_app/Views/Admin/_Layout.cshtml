@@ -32,7 +32,7 @@
 </header>
 
 
-<div class="container-fluid">
+<div class="container ">
     <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
@@ -52,9 +52,12 @@
                 </ul>
             </div>
         </nav>
-        <main role="main" class="col-10">
-            @RenderBody()
-        </main>
+        <div class="col ">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+        
     </div>
 </div>
 <footer class="border-top footer text-muted">
