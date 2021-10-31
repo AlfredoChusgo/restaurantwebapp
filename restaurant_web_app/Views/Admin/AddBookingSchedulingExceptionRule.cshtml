@@ -1,0 +1,34 @@
+﻿@using Application.BookingOptions.Queries
+@using Domain.Entities
+@using Newtonsoft.Json
+
+@{
+    ViewData["Title"] = "Basic Scheduling Rule";
+}
+
+@section Scripts{
+
+    <script src="~/js/admin/booking_exception_rule.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            buildForm();
+        });
+    </script>
+}
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+
+
+<div class="container">
+    <div class="row  ">
+        <div class="row justify-content-center">
+            <form method="post" action="@Url.Action("AddBookingSchedulingExceptionRule", "Admin")">
+                <div id="mainForm"></div>
+            </form>
+        </div>
+    </div>
+</div>

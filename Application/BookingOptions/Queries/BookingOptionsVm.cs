@@ -9,6 +9,7 @@ namespace Application.BookingOptions.Queries
 {
     public class BookingOptionsVm
     {
+        public BookingOption BookingOption { get; set; }
         public DropDownItemInfo MinPartySizeOptions { get; set; }
         public DropDownItemInfo MaxPartySizeOptions { get; set; }
         public DropDownItemInfo EarlyBookingOptions { get; set; }
@@ -23,6 +24,7 @@ namespace Application.BookingOptions.Queries
             EarlyBookingOptions = new DropDownItemInfo();
             LateBookingOptions = new DropDownItemInfo();
             TimeInterval = new DropDownItemInfo();
+            BookingOption = new BookingOption();
         }
     }
 

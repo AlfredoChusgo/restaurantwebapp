@@ -1,0 +1,60 @@
+﻿@using Application.BookingOptions.BasicScheduleRule.Query
+@using Application.BookingOptions.OptionsFactory
+@using Application.BookingOptions.Queries
+@using Domain.Entities
+@model List<Domain.Entities.SchedulingExceptionBookingRule>
+@{
+    ViewData["Title"] = "Booking Options";
+}
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+
+<div class="col-">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Basic Scheduling Exception Rules 
+                <a class="btn btn-dark "
+                   href="@Url.Action("AddBookingSchedulingExceptionRule", "Admin")">
+                    <i class="fas fa-plus"></i>
+                    Add New
+                </a></h5>
+            <p class="card-text">choose what times your restaurant will be closed</p>
+
+            <table class="table table-striped table-sm text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @foreach (SchedulingExceptionBookingRule item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                        
+                        <td>
+                            <a class="btn btn-sm"
+                               href="@Url.Action("DeleteBookingSchedulerExceptionRule", "Admin", new {id = item.Id})">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+   
+

@@ -10,13 +10,17 @@ namespace Application.BookingOptions.OptionsFactory
 {
     public class BookingOptionsFactory
     {
-        public BookingOptionsVm GetBookingOptionsVm()
+        public BookingOptionsVm GetBookingOptionsVm(Domain.Entities.BookingOption entity)
         {
             BookingOptionsVm vm = new BookingOptionsVm();
             vm.EarlyBookingOptions = GetEarlyBookingOptions();
             vm.MinPartySizeOptions = GetMinPartyOptions();
             vm.MaxPartySizeOptions = GetMaxPartyOptions();
             vm.LateBookingOptions= GetLateBookingOptions();
+            vm.BookingOption.LateBooking = entity.LateBooking;
+            vm.BookingOption.EarlyBooking= entity.EarlyBooking;
+            vm.BookingOption.MaxPartySize = entity.MaxPartySize;
+            vm.BookingOption.MinPartySize = entity.MinPartySize;
 
             return vm;
         }

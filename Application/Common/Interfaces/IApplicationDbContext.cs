@@ -15,7 +15,8 @@ namespace Application.Common.Interfaces
         DbSet<BookingItem> BookingItems { get; set; }
         DbSet<BasicBookingScheduleRule> BasicBookingScheduleRules { get; set; }
         //DbSet<SchedulingBookingRule> SchedulingBookingRule { get; set; }
-        //DbSet<SchedulingExceptionBookingRule> SchedulingExceptionBookingRule { get; set; }
+        DbSet<SchedulingExceptionBookingRule> SchedulingExceptionBookingRule { get; set; }
+        DbSet<BookingOption> BookingOptions { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

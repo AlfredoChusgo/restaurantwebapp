@@ -15,46 +15,67 @@
    
 <div class="container ">
     <div class="row p-3 justify-content-center ">
-        <div class="col-8">
-            <div class="card">
+        <div class="col-6">
+            <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Scheduling Rules</h5>
                     <p class="card-text">choose what times each week your restaurant is available to book reservations</p>
-                    <a asp-controller="Admin" asp-action="BookingSchedulingRules" class="btn btn-dark">Go to Scheduling rules</a>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a asp-controller="Admin" asp-action="BookingSchedulingRules" class="btn btn-dark">Go to Scheduling Rules</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Scheduling Exception Rules</h5>
+                    <p class="card-text">choose which days your restaurant will not be available</p>
+
+
+                    <div class="d-flex align-items-end">
+                        
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a asp-controller="Admin" asp-action="BookingSchedulingExceptionRules" class="btn btn-dark">Go to Scheduling Exceptions</a>
                 </div>
             </div>
         </div>
     </div>
-    
+
+
+
     <div class="row p-3 justify-content-center">
         <div class="col-8">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Simple rules</h5>
 
-                    <form>
+                    <form method="post" action="@Url.Action("UpdateBookingOptions", "Admin")">
                         <div class="form-group">
-                            @Html.LabelFor(m => m.BookingOptions.MinPartySize)
-                            @Html.DropDownListFor(m => m.BookingOptions.MinPartySize,
-                                Model.SelectListMinPartySizeOptions, "", new {@class = "form-control"})
+                            @Html.LabelFor(m => m.BookingOption.MinPartySize)
+                            @Html.DropDownListFor(m => m.BookingOption.MinPartySize,
+                                Model.SelectListMinPartySizeOptions, "", new { @class = "form-control" })
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(m => m.BookingOptions.MaxPartySize)
-                            @Html.DropDownListFor(m => m.BookingOptions.MaxPartySize,
-                                Model.SelectListMaxPartySizeOptions, "", new {@class = "form-control"})
+                            @Html.LabelFor(m => m.BookingOption.MaxPartySize)
+                            @Html.DropDownListFor(m => m.BookingOption.MaxPartySize,
+                                Model.SelectListMaxPartySizeOptions, "", new { @class = "form-control" })
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(m => m.BookingOptions.EarlyBooking)
-                            @Html.DropDownListFor(m => m.BookingOptions.EarlyBooking,
-                                Model.SelectListEarlyBookingOptions, "", new {@class = "form-control"})
+                            @Html.LabelFor(m => m.BookingOption.EarlyBooking)
+                            @Html.DropDownListFor(m => m.BookingOption.EarlyBooking,
+                                Model.SelectListEarlyBookingOptions, "", new { @class = "form-control" })
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(m => m.BookingOptions.LateBooking)
-                            @Html.DropDownListFor(m => m.BookingOptions.LateBooking,
-                                Model.SelectListLateBookingOptions, "", new {@class = "form-control"})
+                            @Html.LabelFor(m => m.BookingOption.LateBooking)
+                            @Html.DropDownListFor(m => m.BookingOption.LateBooking,
+                                Model.SelectListLateBookingOptions, "", new { @class = "form-control" })
                         </div>
 
                         <div class="btn">

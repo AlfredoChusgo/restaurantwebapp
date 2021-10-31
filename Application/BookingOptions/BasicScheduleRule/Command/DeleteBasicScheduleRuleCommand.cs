@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Application.Common.Exceptions;
 using Application.Common.Interfaces;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.Booking.Commands
+namespace Application.BookingOptions.BasicScheduleRule.Command
 {
     public class DeleteBasicScheduleRuleCommand : IRequest
     {

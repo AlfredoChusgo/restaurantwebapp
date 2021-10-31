@@ -13,6 +13,20 @@
     {
       "library": "bootstrap@5.1.1",
       "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "devextreme@21.1.6",
+      "destination": "wwwroot/lib/devextreme/",
+      "files": [
+        "js/dx.all.min.js",
+        "css/dx.light.min.css",
+        "css/icons/dxicons.ttf",
+        "css/icons/dxicons.woff",
+        "css/icons/dxicons.woff2",
+        "css/icons/dxiconsmaterial.ttf",
+        "css/icons/dxiconsmaterial.woff",
+        "css/icons/dxiconsmaterial.woff2"
+      ]
     }
-  ]
+]
 }

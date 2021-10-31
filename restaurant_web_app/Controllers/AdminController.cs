@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Booking.Commands;
 using Application.Booking.Queries;
 using Application.BookingOptions.BasicScheduleRule.Command;
 using Application.BookingOptions.BasicScheduleRule.Query;
+using Application.BookingOptions.Commands;
+using Application.BookingOptions.ExceptionBookingRule.Command;
+using Application.BookingOptions.ExceptionBookingRule.Query;
 using Application.BookingOptions.Queries;
-using Application.Common.Interfaces;
 using Domain.Entities;
 using Domain.Enums;
-using Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using restaurant_web_app.BussinessLogicLayer.BookingOptionsRazorHelper;
 using restaurant_web_app.Enums;
 using restaurant_web_app.ViewModels;
 
@@ -65,8 +62,18 @@ namespace restaurant_web_app.Controllers
             
             BookingOptionsViewModel viewModel = new BookingOptionsViewModel(vm);
 
-            return View(viewModel);
+            return View("BookingOptions",viewModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateBookingOptions(UpdateBookingOptionCommand bookingOption)
+        {
+            BookingOption result = await Mediator.Send(bookingOption);
+
+            return await BookingOptions();
+        }
+
+        #region Booking
 
         public async Task<IActionResult> BookingEdit(int id)
         {
@@ -117,49 +124,56 @@ namespace restaurant_web_app.Controllers
             return await Index(BookingStatus.Pending, ActionType.Created);
         }
 
-       public async Task<IActionResult> DeleteBooking(int id)
+        public async Task<IActionResult> DeleteBooking(int id)
         {
             DeleteBookingItemCommand command = new DeleteBookingItemCommand(id);
             await Mediator.Send(command);
             return await Index(BookingStatus.Pending, ActionType.Deleted);
         }
 
-       public async Task<IActionResult> BookingSchedulingRules()
-       {
-           List<BasicBookingScheduleRule> vm = await Mediator.Send(new GetAllBasicScheduleRuleQuery());
+        #endregion
 
-           return View("BookingSchedulingRules",vm);
-       }
 
-       public async Task<IActionResult> AddBasicBookingSchedulingRule()
-       {
-           BasicBookingScheduleRuleVm vm = await Mediator.Send(new GetBasicScheduleRuleOptionsQuery());
-           BasicBookingOptionRuleViewModel viewModel = new BasicBookingOptionRuleViewModel(vm);
-           return View(viewModel);
-       }
 
-       [HttpPost]
-       public async Task<IActionResult> AddBasicBookingSchedulerRule([Bind] CreateBasicScheduleRuleCommand basicBookingScheduleRule)
-       {
+        #region BookingSchedulingRule
 
-           BasicBookingScheduleRule item = await Mediator.Send(basicBookingScheduleRule);
 
-           return await BookingSchedulingRules();
-       }
-
-       public async Task<IActionResult> DeleteBasicBookingSchedulerRule(int id)
-       {
-           DeleteBasicScheduleRuleCommand command = new DeleteBasicScheduleRuleCommand(id);
-
-           await Mediator.Send(command);
-
-           return await BookingSchedulingRules();
-       }
+        public async Task<IActionResult> AddBasicBookingSchedulingRule()
+        {
+            BasicBookingScheduleRuleVm vm = await Mediator.Send(new GetSchedulingBookingRuleQuery());
+            BasicBookingOptionRuleViewModel viewModel = new BasicBookingOptionRuleViewModel(vm);
+            return View(viewModel);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateBookingBasicBookingSchedulerRule([Bind] UpdateBasicScheduleRuleCommand basicBookingScheduleRule)
+        public async Task<IActionResult> AddBasicBookingSchedulerRule([Bind] CreateBasicScheduleRuleCommand basicBookingScheduleRule)
         {
-            //UpdateBookingItemCommand command = new UpdateBookingItemCommand(item);
+
+            BasicBookingScheduleRule item = await Mediator.Send(basicBookingScheduleRule);
+
+            return await BookingSchedulingRules();
+        }
+
+
+        public async Task<IActionResult> BookingSchedulingRules()
+        {
+            List<BasicBookingScheduleRule> vm = await Mediator.Send(new GetAllBasicScheduleRuleQuery());
+
+            return View("BookingSchedulingRules", vm);
+        }
+
+        public async Task<IActionResult> DeleteBasicBookingSchedulerRule(int id)
+        {
+            DeleteBasicScheduleRuleCommand command = new DeleteBasicScheduleRuleCommand(id);
+
+            await Mediator.Send(command);
+
+            return await BookingSchedulingRules();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateBookingBasicBookingSchedulerRule([Bind] UpdateSchedulingExceptionBookingRuleCommand basicBookingScheduleRule)
+        {
             await Mediator.Send(basicBookingScheduleRule);
 
             return await BookingSchedulingRules();
@@ -168,15 +182,59 @@ namespace restaurant_web_app.Controllers
         public async Task<IActionResult> BasicBookingSchedulingRuleEdit(int id)
         {
             GetBasicScheduleRuleQuery query = new GetBasicScheduleRuleQuery
-                {Id = id};
+            { Id = id };
 
             BasicBookingScheduleRule item = await Mediator.Send(query);
-            BasicBookingScheduleRuleVm vm = await Mediator.Send(new GetBasicScheduleRuleOptionsQuery());
+            BasicBookingScheduleRuleVm vm = await Mediator.Send(new GetSchedulingBookingRuleQuery());
 
             BasicBookingOptionRuleViewModel viewModel = new BasicBookingOptionRuleViewModel(vm);
             viewModel.BasicBookingScheduleRule = item;
 
+            ModelState.AddModelError("BasicBookingScheduleRule.StartTimeId", "TestError");
+
             return View(viewModel);
         }
+
+        #endregion
+
+
+        #region BookingExceptions
+
+
+
+        public async Task<IActionResult> AddBookingSchedulingExceptionRule()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddBookingSchedulingExceptionRule([Bind] CreateSchedulingExceptionBookingRuleCommand basicBookingScheduleRule)
+        {
+
+            var item = await Mediator.Send(basicBookingScheduleRule);
+
+            return await BookingSchedulingExceptionRules();
+        }
+
+
+        public async Task<IActionResult> BookingSchedulingExceptionRules()
+        {
+            List<SchedulingExceptionBookingRule> vm = await Mediator.Send(new GetAllSchedulingExceptionBookingRuleQuery());
+
+            return View("BookingSchedulingExceptionRules", vm);
+        }
+
+        public async Task<IActionResult> DeleteBookingSchedulerExceptionRule(int id)
+        {
+            var command = new DeleteSchedulingExceptionBookingRuleCommand(id);
+
+            await Mediator.Send(command);
+
+            return await BookingSchedulingExceptionRules();
+        }
+
+       
+
+        #endregion
     }
 }

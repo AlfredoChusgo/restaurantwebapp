@@ -11,7 +11,7 @@ namespace restaurant_web_app.ViewModels
 {
     public class BookingOptionsViewModel
     {
-        public BookingOptions BookingOptions { get; set; }
+        public BookingOption BookingOption { get; set; }
         public SelectList SelectListMinPartySizeOptions { get; set; }
         public SelectList SelectListMaxPartySizeOptions { get; set; }
         public SelectList SelectListEarlyBookingOptions { get; set; }
@@ -19,11 +19,12 @@ namespace restaurant_web_app.ViewModels
 
         public BookingOptionsViewModel(BookingOptionsVm bookingOptionsVm)
         {
-            BookingOptions = new BookingOptions();
+            BookingOption = new BookingOption();
             SelectListMinPartySizeOptions = SelectListFactory.GetSelectList(bookingOptionsVm.MinPartySizeOptions);
             SelectListMaxPartySizeOptions = SelectListFactory.GetSelectList(bookingOptionsVm.MaxPartySizeOptions);
             SelectListEarlyBookingOptions = SelectListFactory.GetSelectList(bookingOptionsVm.EarlyBookingOptions);
             SelectListLateBookingOptions = SelectListFactory.GetSelectList(bookingOptionsVm.LateBookingOptions);
+            BookingOption = bookingOptionsVm.BookingOption;
         }
     }
 }

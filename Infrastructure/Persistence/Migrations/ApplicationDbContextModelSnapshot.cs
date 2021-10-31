@@ -87,22 +87,36 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("BookingItems");
                 });
 
+            modelBuilder.Entity("Domain.Entities.BookingOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("EarlyBooking")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LateBooking")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaxPartySize")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MinPartySize")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookingOptions");
+                });
+
             modelBuilder.Entity("Domain.Entities.SchedulingExceptionBookingRule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<bool>("AllDay")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
