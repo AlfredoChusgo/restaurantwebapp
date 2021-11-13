@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Application.Booking.Commands;
 using Application.Booking.Queries;
+using Application.BookingAvailableSchedules.Query;
 using Application.BookingOptions.BasicScheduleRule.Command;
 using Application.BookingOptions.BasicScheduleRule.Query;
 using Application.BookingOptions.Commands;
@@ -108,9 +109,25 @@ namespace restaurant_web_app.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddBooking()
+        public async Task<IActionResult> AddBooking()
         {
-            return View();
+            BookingConfigurationVm vm = await Mediator.Send(new GetBookingConfigurationQuery());
+            BookingViewModel viewModel = new BookingViewModel(vm);
+            
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAvailableSchedulesBooking()
+        {
+            string date = HttpContext.Request.Query["date"];
+
+            List<string> list = await Mediator.Send(new GetAvailableSchedulesQuery
+            {
+                DateTimeInMilliseconds = date
+            });
+
+            return new JsonResult(list);
         }
 
         [HttpPost]
@@ -189,8 +206,6 @@ namespace restaurant_web_app.Controllers
 
             BasicBookingOptionRuleViewModel viewModel = new BasicBookingOptionRuleViewModel(vm);
             viewModel.BasicBookingScheduleRule = item;
-
-            ModelState.AddModelError("BasicBookingScheduleRule.StartTimeId", "TestError");
 
             return View(viewModel);
         }

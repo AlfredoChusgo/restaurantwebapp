@@ -61,7 +61,7 @@ namespace Application.BookingOptions.OptionsFactory
             return index;
         }
         
-        private static List<DateTime> GetBaseDateTimes()
+        public static List<DateTime> GetBaseDateTimes()
         {
             DateTime baseDateTime = new DateTime(1991, 1, 1, 5, 0, 0);
 

@@ -1,9 +1,25 @@
 ﻿@using Domain.Entities
 @using Domain.Enums
-@model Domain.Entities.BookingItem
+@using Newtonsoft.Json
+@model restaurant_web_app.ViewModels.BookingViewModel
 
 @{
     ViewData["Title"] = "Add New Booking";
+}
+
+@section Scripts{
+
+    <script src="~/js/admin/add_booking.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var partySizeArray = @Html.Raw(JsonConvert.SerializeObject(Model.PartySize));
+            var disabledDatesArray = @Html.Raw(JsonConvert.SerializeObject(Model.DisabledDates));
+            var bookingStatusArray = @Html.Raw(JsonConvert.SerializeObject(Model.BookingStatus));
+            var getAvailableSchedulingUrl = "@Html.Raw(@Url.Action("GetAvailableSchedulesBooking", "Admin"))";
+
+            buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAvailableSchedulingUrl);
+        });
+    </script>
 }
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap mb-3 pb-2 mb-3 border-bottom">
@@ -12,6 +28,9 @@
 
 <div class="row">
     <div class="col-6">
+        <form method="post" action="@Url.Action("AddBooking", "Admin")">
+            <div id="mainForm"></div>
+        </form>
 
         <form method="post" action="@Url.Action("AddBooking", "Admin")">
             <input type="hidden" class="form-control" id="id" name="id" required="">
@@ -56,9 +75,9 @@
 
             <div class="mb-3">
                 <label for="date">Date</label>
-                <input class="form-control"type="datetime-local" data-val="true" data-val-required="The DateTime field is required." id="date" name="date" value="@DateTime.Now">
+                <input class="form-control" type="datetime-local" data-val="true" data-val-required="The DateTime field is required." id="date" name="date" value="@DateTime.Now">
             </div>
-            
+
 
             <div class="mb-3">
                 <label for="phone">Phone</label>
