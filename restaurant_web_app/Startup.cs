@@ -27,7 +27,7 @@ namespace restaurant_web_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.AddInfrastructure(Configuration);
             services.AddControllersWithViews();
         }
@@ -56,7 +56,7 @@ namespace restaurant_web_app
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Restaurant}/{action=Index}/{id?}");
             });
         }
     }

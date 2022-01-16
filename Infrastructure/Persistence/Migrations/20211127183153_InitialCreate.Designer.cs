@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211031164128_InitialCreate")]
+    [Migration("20211127183153_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,6 +82,9 @@ namespace Infrastructure.Persistence.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TimeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

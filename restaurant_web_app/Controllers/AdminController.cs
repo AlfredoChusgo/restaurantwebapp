@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Booking.Commands;
 using Application.Booking.Queries;
@@ -9,12 +10,15 @@ using Application.BookingOptions.Commands;
 using Application.BookingOptions.ExceptionBookingRule.Command;
 using Application.BookingOptions.ExceptionBookingRule.Query;
 using Application.BookingOptions.Queries;
+using Application.Common.Interfaces;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using restaurant_web_app.Enums;
+using restaurant_web_app.Models;
 using restaurant_web_app.ViewModels;
 
 namespace restaurant_web_app.Controllers
@@ -23,11 +27,13 @@ namespace restaurant_web_app.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         protected ISender Mediator { get; }
+        private ISecurityTextService SecurityTextService { get; }
 
-        public AdminController(ILogger<HomeController> logger, ISender mediator)
+        public AdminController(ILogger<HomeController> logger, ISender mediator, ISecurityTextService securityTextService)
         {
             _logger = logger;
             Mediator = mediator;
+            SecurityTextService = securityTextService;
         }
 
         public async Task<IActionResult> Index(BookingStatus status, ActionType action, bool applyFilter = false)
@@ -78,13 +84,19 @@ namespace restaurant_web_app.Controllers
 
         public async Task<IActionResult> BookingEdit(int id)
         {
+            BookingConfigurationVm vm = await Mediator.Send(new GetBookingConfigurationQuery());
             GetBookingItemQuery query = new GetBookingItemQuery
             {
                 Id = id
             };
             BookingItem item = await Mediator.Send(query);
+            BookingViewModel viewModel = new BookingViewModel(vm);
+            viewModel.BookingItem = item;
 
-            return View(item);
+            var listEntries = await GetAvailableSchedules(item.DateString);
+            viewModel.AvailableTimes = listEntries;
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> BookingDetail(int id)
@@ -120,14 +132,21 @@ namespace restaurant_web_app.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAvailableSchedulesBooking()
         {
-            string date = HttpContext.Request.Query["date"];
+            string date = HttpContext.Request.Query["date"].ToString();
 
-            List<string> list = await Mediator.Send(new GetAvailableSchedulesQuery
-            {
-                DateTimeInMilliseconds = date
-            });
+            var listEntries = await GetAvailableSchedules(date);
 
-            return new JsonResult(list);
+            return new JsonResult(listEntries);
+        }
+
+        private async Task<List<BasicEntry>> GetAvailableSchedules(string date)
+        {
+            GetAvailableSchedulesQuery query = new GetAvailableSchedulesQuery();
+            query.DateTimeInStringFormat = date;
+            Dictionary<int, string> dictionary = await Mediator.Send(query);
+
+            List<BasicEntry> listEntries = new AvailableSchedulesViewModel(dictionary).ListEntries;
+            return listEntries;
         }
 
         [HttpPost]
@@ -248,7 +267,23 @@ namespace restaurant_web_app.Controllers
             return await BookingSchedulingExceptionRules();
         }
 
-       
+        #endregion
+
+        #region ConfirmationEmail
+
+        public async Task<IActionResult> BookingConfirmationAction(string id)
+        {
+            string decryptedId = SecurityTextService.Decrypt(id);
+
+            GetBookingItemQuery query = new GetBookingItemQuery()
+            {
+                Id = int.Parse(decryptedId)
+            };
+
+            BookingItem vm = await Mediator.Send(query);
+            
+            return View(vm);
+        }
 
         #endregion
     }

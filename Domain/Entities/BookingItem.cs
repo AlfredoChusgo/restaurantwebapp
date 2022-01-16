@@ -14,6 +14,10 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public DateTime Date { get; set; }
+
+        public string DateString => Date.ToString("yyyy-MM-dd");
+
+        public int TimeId { get; set; }
         public string Phone { get; set; }
         public BookingStatus Status { get; set; }
         public string Details { get; set; }

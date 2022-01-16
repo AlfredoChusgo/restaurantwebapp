@@ -28,11 +28,27 @@ namespace Application.Booking.Queries
             {
                 BookingConfigurationVm vm = new BookingConfigurationVm();
 
+                await AddDefaultBookingOption();
+
                 vm.PartySizeDictionary = GetPartySizeList(_context);
                 vm.StatusDictionary = GetStatusDictionary(_context);
                 vm.DisabledDatesDictionary = GetDisabledDatesList(_context);
 
                 return vm;
+            }
+
+            private async Task AddDefaultBookingOption()
+            {
+                BookingOption options = _context.BookingOptions.FirstOrDefault();
+
+                if (!_context.BookingOptions.Any())
+                {
+                    options = new BookingOption();
+                    options.MinPartySize = 1;
+                    options.MaxPartySize = 10;
+                    _context.BookingOptions.Add(options);
+                    await _context.SaveChangesAsync(CancellationToken.None);
+                }
             }
 
             private List<DateTime> GetDisabledDatesList(IApplicationDbContext context)
@@ -51,7 +67,7 @@ namespace Application.Booking.Queries
             private List<int> GetPartySizeList(IApplicationDbContext context)
             {
                 BookingOption options = context.BookingOptions.FirstOrDefault();
-
+                
                 if (options.MinPartySize >= options.MaxPartySize)
                 {
                     throw new Exception("MinPartySize must be greater that MaxPartySize");

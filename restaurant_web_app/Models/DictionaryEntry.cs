@@ -7,7 +7,7 @@ namespace restaurant_web_app.Models
 {
     public class BasicEntry
     {
-        public int Key { get; set; }
-        public string Value { get; set; }
+        public int key { get; set; }
+        public string value { get; set; }
     }
 }

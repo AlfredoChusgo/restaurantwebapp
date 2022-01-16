@@ -26,8 +26,8 @@ namespace restaurant_web_app.ViewModels
             //SelectEndTimeBookingRule = SelectListFactory.GetSelectList(vm.EndTimeBookingRule);
             TimesDictionary = vm.StartTimeBookingRule.DropDownDictionary.Select(e => new BasicEntry
             {
-                Key = e.Key,
-                Value = e.Value
+                key = e.Key,
+                value = e.Value
             }).ToList();
     }
     }

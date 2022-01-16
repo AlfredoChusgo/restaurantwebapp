@@ -11,7 +11,7 @@ namespace Application.BookingOptions.OptionsFactory
 {
     public class BasicScheduleRuleFactory
     {
-        private const string TimeFormat = "hh:mm tt";
+        public const string TimeFormat = "hh:mm tt";
         public static BasicBookingScheduleRuleVm GetBasicBookingScheduleOptionsVm()
         {
             BasicBookingScheduleRuleVm vm = new BasicBookingScheduleRuleVm();

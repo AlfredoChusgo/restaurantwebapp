@@ -8,7 +8,7 @@ function buildForm(model , timesArray) {
 
     var dataSource = new DevExpress.data.DataSource({
         store: {
-            key: "Key",
+            key: "key",
             data: array,
             type: "array",
         }
@@ -109,8 +109,8 @@ function buildForm(model , timesArray) {
                     editorType: "dxSelectBox",
                     editorOptions: {
                         dataSource: dataSource,
-                        displayExpr: "Value",
-                        valueExpr: "Key"
+                        displayExpr: "value",
+                        valueExpr: "key"
                     },
                     validationRules: [
                         {
@@ -160,8 +160,8 @@ function buildForm(model , timesArray) {
 
                     editorOptions: {
                         dataSource: dataSource,
-                        displayExpr: "Value",
-                        valueExpr: "Key"
+                        displayExpr: "value",
+                        valueExpr: "key"
                     }
                 }
             ]

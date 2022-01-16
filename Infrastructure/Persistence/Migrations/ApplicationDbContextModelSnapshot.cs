@@ -82,6 +82,9 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<int>("TimeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("BookingItems");

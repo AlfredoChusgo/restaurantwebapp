@@ -2,15 +2,10 @@
 
 
 
-function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAvailableSchedulingUrl) {
-    //var modelData = model;
-    //var array = timesArray;
-    var modelData = null;
+function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAvailableSchedulingUrl, modelData, availableTimesArray) {
 
     var disabledDatesJsArray = disabledDatesArray.map(e => {
         var date = new Date(Date.parse(e));
-
-        //return new Date(0, date.getMonth(), date.getDay());
         return date;
     });
 
@@ -31,22 +26,16 @@ function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAv
         }
     });
 
-    //var availableSchedulingBookingDataSource = new DevExpress.data.DataSource(getAvailableSchedulingUrl);
-    var availableSchedulingBookingStore = new DevExpress.data.CustomStore({
-        load: function (loadOptions) {
-            return $.getJSON(getAvailableSchedulingUrl);
-        },
-        byKey: function (key) {
-            //return $.getJSON(getAvailableSchedulingUrl + "/" + encodeURIComponent(key));
-            var queryParams = new URLSearchParams(key).toString();
-
-            var url = updateQueryStringParameter(getAvailableSchedulingUrl, "date", key);
-            return $.getJSON(url);
-        },
-    });
-
-    var availableSchedulingBookingDataSource = new DevExpress.data.DataSource({
-        store: availableSchedulingBookingStore
+    var availableTimes = [];
+    if (availableTimesArray) {
+        availableTimes = availableTimesArray;
+    }
+    var availableSchedulingBookingStore = new DevExpress.data.DataSource({
+        store: {
+            key: "Key",
+            data: availableTimes,
+            type: "array"
+        }
     });
 
     var formData = {};
@@ -56,19 +45,19 @@ function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAv
             id: modelData.Id,
             name: modelData.Name,
             email: modelData.Email,
-            Date: modelData.Date,
+            date: modelData.DateString,
             phone: modelData.Phone,
             status: modelData.Status,
             detail: modelData.Detail,
-            partySize: modelData.PartySize
-
-        };
+            partySize: modelData.PartySize,
+            timeId: modelData.TimeId
+    };
     } else {
         formData = {
             id: 0,
             name: "",
             email: "",
-            Date: null,
+            date: "",
             phone: "",
             status: 0,
             detail: "",
@@ -146,8 +135,8 @@ function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAv
                     editorType: "dxSelectBox",
                     editorOptions: {
                         dataSource: dataSourcePartySize,
-                        displayExpr: "Value",
-                        valueExpr: "Key"
+                        displayExpr: "value",
+                        valueExpr: "key"
                     },
                     validationRules: [
                         {
@@ -168,8 +157,8 @@ function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAv
 
                     editorOptions: {
                         dataSource: dataSourceBookingStatus,
-                        displayExpr: "Value",
-                        valueExpr: "Key"
+                        displayExpr: "value",
+                        valueExpr: "key"
                     }
                 },
                 {
@@ -183,14 +172,33 @@ function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAv
                     ],
 
                     editorOptions: {
+                        type:"date",
                         calendarOptions: {
                             min: new Date(),
                         },
                         disabledDates: disabledDatesJsArray,
                         onValueChanged: function (e) {
-                            var dataSource = formWidget.itemOption("booking-info.timeId").editorOptions.dataSource;
-                            dataSource.store().byKey(e.value.getTime());
-                            dataSource.load();
+                            //var dateInMilliseconds = e.value.getTime();
+                            var dateString = e.value;
+
+                            if (e.value instanceof Date) {
+                                var year = e.value.getFullYear();
+                                var month = e.value.getMonth() + 1;
+                                var day = e.value.getDate();
+
+                                dateString = `${year}-${month}-${day}`;
+                            }
+                            //var dateString = e.value;
+                            var url = updateQueryStringParameter(getAvailableSchedulingUrl, "date", dateString);
+                            var result = $.getJSON(url, function (data) {
+                                var dataSource = formWidget.itemOption("booking-info.timeId").editorOptions.dataSource;
+                                var store = dataSource.store();
+                                store.clear();
+                                data.forEach((e) => {
+                                    store.insert(e);
+                                });
+                                dataSource.reload();
+                            });
                         }
                     }
                 },
@@ -208,7 +216,10 @@ function buildForm(partySizeArray, disabledDatesArray, bookingStatusArray, getAv
                     ],
 
                     editorOptions: {
-                        dataSource: availableSchedulingBookingDataSource
+
+                        displayExpr: "value",
+                        valueExpr: "key",
+                        dataSource: availableSchedulingBookingStore
                     }
                 }
             ]

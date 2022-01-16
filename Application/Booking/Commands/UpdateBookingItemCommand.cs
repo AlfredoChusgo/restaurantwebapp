@@ -6,6 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Application.Common.Exceptions;
 using Application.Common.Interfaces;
+using Application.Services.EmailLayer;
+using Application.Services.EmailLayer.Model;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
@@ -22,7 +24,7 @@ namespace Application.Booking.Commands
         public string Phone { get; set; }
         public BookingStatus Status { get; set; }
         public string Details { get; set; }
-
+        public int TimeId { get; set; }
         public UpdateBookingItemCommand(BookingItem bookingItem)
         {
             Id = bookingItem.Id;
@@ -38,10 +40,16 @@ namespace Application.Booking.Commands
         public class UpdateBookingItemCommandHandler : IRequestHandler<UpdateBookingItemCommand, BookingItem>
         {
             private readonly IApplicationDbContext _context;
+            private readonly IEmailService _emailService;
+            private readonly IUrlActionService _urlActionService;
+            private readonly ISecurityTextService _securityTextService;
 
-            public UpdateBookingItemCommandHandler(IApplicationDbContext context)
+            public UpdateBookingItemCommandHandler(IApplicationDbContext context, IEmailService emailService, IUrlActionService urlActionService, ISecurityTextService securityTextService)
             {
                 _context = context;
+                _emailService = emailService;
+                _urlActionService = urlActionService;
+                _securityTextService = securityTextService;
             }
 
             public async Task<BookingItem> Handle(UpdateBookingItemCommand request, CancellationToken cancellationToken)
@@ -53,6 +61,8 @@ namespace Application.Booking.Commands
                     throw new NotFoundException(nameof(BookingItem), request.Id);
                 }
 
+                bool statusChanged = entity.Status != request.Status;
+
                 entity.PartySize = request.PartySize;
                 entity.Name = request.Name;
                 entity.Email = request.Email;
@@ -60,9 +70,15 @@ namespace Application.Booking.Commands
                 entity.Phone = request.Phone;
                 entity.Status = request.Status;
                 entity.Details = request.Details;
-
+                entity.TimeId = request.TimeId;
                 await _context.SaveChangesAsync(cancellationToken);
-                
+
+                if (statusChanged)
+                {
+                    EmailModel model = EmailModelFactory.UpdateBookingConfirmationEmailModel(entity, _urlActionService, _securityTextService);
+                    await _emailService.SendEmail(model);
+                }
+
                 return entity;
             }
         }

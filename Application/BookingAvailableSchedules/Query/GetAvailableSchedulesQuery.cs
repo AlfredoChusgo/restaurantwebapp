@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.BookingOptions.OptionsFactory;
 using Application.Common.Interfaces;
+using Domain.Entities;
 using MediatR;
 
 namespace Application.BookingAvailableSchedules.Query
 {
-    public class GetAvailableSchedulesQuery : IRequest<List<string>>
+    public class GetAvailableSchedulesQuery : IRequest<Dictionary<int, string>>
     {
         
-        public string DateTimeInMilliseconds{ get; set; }
+        public string DateTimeInStringFormat{ get; set; }
 
-        public class GetAvailableSchedulesQueryHandler : IRequestHandler<GetAvailableSchedulesQuery, List<string>>
+        public class GetAvailableSchedulesQueryHandler : IRequestHandler<GetAvailableSchedulesQuery, Dictionary<int, string>>
         {
             private readonly IApplicationDbContext _context;
             public GetAvailableSchedulesQueryHandler(IApplicationDbContext context)
@@ -23,18 +25,93 @@ namespace Application.BookingAvailableSchedules.Query
                 _context = context;
             }
 
-            public async Task<List<string>> Handle(GetAvailableSchedulesQuery request, CancellationToken cancellationToken)
+            public async Task<Dictionary<int, string>> Handle(GetAvailableSchedulesQuery request, CancellationToken cancellationToken)
             {
-                DateTime date = GetDateTimeFromMilliseconds(request.DateTimeInMilliseconds);
-                List<string> result = new List<string>();
-                result.Add("13:00");
-                result.Add("14:00");
-                result.Add("15:00");
-                result.Add("16:00");
-                return result;
+                DateTime date = DateTime.ParseExact(request.DateTimeInStringFormat, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+
+
+                DayOfWeek dayOfWeekSelected = date.DayOfWeek;
+
+                Func<BasicBookingScheduleRule, bool> filterByDay = delegate (BasicBookingScheduleRule rule)
+                {
+                    List<DayOfWeek> listOfDays = ToDayOfWeeks(rule);
+
+                    if (listOfDays.Contains(dayOfWeekSelected))
+                    {
+                        return true;
+                    }
+                    return false;
+                };
+
+                List<BasicBookingScheduleRule> rules = _context.BasicBookingScheduleRules.Where(filterByDay).ToList();
+                List<int> listDateTimesId = new List<int>();
+
+                rules.ForEach(e =>
+                {
+                    for (int i = e.StartTimeId; i <= e.EndTimeId; i++)
+                    {
+                        if (!listDateTimesId.Contains(i))
+                        {
+                            listDateTimesId.Add(i);
+                        }
+                    }
+                });
+
+                List<DateTime> dateTimes = BasicScheduleRuleFactory.GetBaseDateTimes();
+
+                Dictionary<int,string> dictionary = new Dictionary<int, string>();
+
+                listDateTimesId.ForEach(e =>
+                {
+                    DateTime date = dateTimes[e];
+                    dictionary.Add(e, date.ToString(BasicScheduleRuleFactory.TimeFormat));
+                });
+
+                //List<DateTime> filteredDateTimes = dateTimes.Where((e, index) => listDateTimesId.Contains(index)).ToList();
+
+                //Dictionary<int, DateTime> result = new Dictionary<int, DateTime>();
+                return dictionary;
             }
 
-            public Dictionary<int, string> GetAvailableTimes()
+            private List<DayOfWeek> ToDayOfWeeks(BasicBookingScheduleRule rule)
+            {
+                List<DayOfWeek> list = new List<DayOfWeek>();
+
+                if (rule.MondaySelected)
+                {
+                    list.Add(DayOfWeek.Monday);
+                }
+                if (rule.TuesdaySelected)
+                {
+                    list.Add(DayOfWeek.Tuesday);
+                }
+                if (rule.WednesdaySelected)
+                {
+                    list.Add(DayOfWeek.Wednesday);
+                }
+                if (rule.ThursdaySelected)
+                {
+                    list.Add(DayOfWeek.Thursday);
+                }
+                if (rule.FridaySelected)
+                {
+                    list.Add(DayOfWeek.Friday);
+                }
+
+                if (rule.SaturdaySelected)
+                {
+                    list.Add(DayOfWeek.Saturday);
+                }
+                if (rule.SundaySelected)
+                {
+                    list.Add(DayOfWeek.Sunday);
+                }
+
+                return list;
+            }
+
+
+            public List<DateTime> GetAvailableTimes()
             {
                 List<DateTime> dateTimes = BasicScheduleRuleFactory.GetBaseDateTimes();
 

@@ -1,0 +1,53 @@
+﻿@using Domain.Entities
+@using Domain.Enums
+@model Domain.Entities.BookingItem
+
+@{
+    ViewData["Title"] = "Booking Detail";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="align-items-center">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name"  value="@Model.Name"required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" value="@Model.Email" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="partySize">Party Size</label>
+            <input type="text" class="form-control" id="partySize" value="@Model.PartySize" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="date">Date</label>
+            <input type="text" class="form-control" id="date" value="@Model.Date" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" value="@Model.Phone" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" value="@Model.Status" required="" disabled>
+        </div>
+        
+        <div class="align-items-center">
+            <label for="detail">Detail</label>
+            <textarea class="form-control rounded-0" id="detail" rows="3" disabled>
+            @Model.Details
+            </textarea>
+        </div>
+    </div>
+</div>
+

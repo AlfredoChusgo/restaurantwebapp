@@ -45,6 +45,7 @@ namespace Infrastructure.Persistence.Migrations
                     Email = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    TimeId = table.Column<int>(type: "int", nullable: false),
                     Phone = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<int>(type: "int", nullable: false),
