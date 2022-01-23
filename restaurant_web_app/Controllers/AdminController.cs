@@ -11,6 +11,8 @@ using Application.BookingOptions.ExceptionBookingRule.Command;
 using Application.BookingOptions.ExceptionBookingRule.Query;
 using Application.BookingOptions.Queries;
 using Application.Common.Interfaces;
+using Application.Contact.Commands;
+using Application.Contact.Queries;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
@@ -285,6 +287,20 @@ namespace restaurant_web_app.Controllers
             return View(vm);
         }
 
+        public async Task<IActionResult> ContactUsList()
+        {
+            List<ContactUs> contactUsList = await Mediator.Send(new GetAllContactUsQuery());
+            return View("ContactUsList",contactUsList);
+        }
+
+        public async Task<IActionResult> DeleteContactUs(int id)
+        {
+            var command = new DeleteContactUsCommand(id);
+
+            await Mediator.Send(command);
+
+            return await ContactUsList();
+        }
         #endregion
     }
 }

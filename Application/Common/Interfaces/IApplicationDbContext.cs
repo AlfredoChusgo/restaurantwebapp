@@ -13,6 +13,8 @@ namespace Application.Common.Interfaces
     public interface IApplicationDbContext
     {
         DbSet<BookingItem> BookingItems { get; set; }
+        DbSet<ContactUs> ContactUs { get; set; }
+
         DbSet<BasicBookingScheduleRule> BasicBookingScheduleRules { get; set; }
         //DbSet<SchedulingBookingRule> SchedulingBookingRule { get; set; }
         DbSet<SchedulingExceptionBookingRule> SchedulingExceptionBookingRule { get; set; }
