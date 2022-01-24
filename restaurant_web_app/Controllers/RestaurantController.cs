@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Booking.Commands;
 using Application.Contact.Commands;
+using Application.Contact.Queries;
+using Application.Products.Queries;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
@@ -62,9 +64,10 @@ namespace restaurant_web_app.Controllers
         {
             return View();
         }
-        public IActionResult Menu()
+        public async Task<IActionResult> Menu()
         {
-            return View();
+            GetAllProductsVm vm = await Mediator.Send(new GetAllProductsQuery());
+            return View(vm);
         }        
         public IActionResult Contact()
         {

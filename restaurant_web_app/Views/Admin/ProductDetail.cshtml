@@ -1,0 +1,56 @@
+﻿@using Domain.Entities
+@using Domain.Enums
+@model Product
+
+@{
+    ViewData["Title"] = "Product Detail";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="align-items-center">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" value="@Model.Name" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="email">Description</label>
+            <input type="text" class="form-control" id="email" value="@Model.Description" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="partySize">Price</label>
+            <input type="text" class="form-control" id="partySize" value="@Model.Price" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="priceSymbol">Price Symbol</label>
+            <input type="text" class="form-control" id="priceSymbol" value="@Model.PriceSymbol" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="date">Is New</label>
+            <input type="text" class="form-control" id="date" value="@Model.IsNew.ToString()" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="phone">Date Created</label>
+            <input type="text" class="form-control" id="phone" value="@Model.DateCreated" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="status">Date Updated</label>
+            <input type="text" class="form-control" id="status" value="@Model.DateUpdated" required="" disabled>
+        </div>
+
+        <div class="align-items-center">
+            <label for="status">Image</label>
+            <img src="@Model.ProductImageBase64"/>
+        </div>
+    </div>
+</div>
+

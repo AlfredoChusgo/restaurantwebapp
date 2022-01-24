@@ -1,0 +1,32 @@
+﻿@using Domain.Entities
+ @using Domain.Enums
+@using Newtonsoft.Json
+
+@{
+    ViewData["Title"] = "Add New Booking";
+}
+
+@section Scripts{
+
+    <script src="~/js/admin/product_add.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            buildForm();
+        });
+    </script>
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap mb-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">@ViewData["Title"]</h1>
+    
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <form method="post" action="@Url.Action("AddProduct", "Admin")">
+            <div id="mainForm"></div>
+            <input id="productImageBase64" name="ProductImageBase64" type="hidden" value=""/>
+        </form>
+    </div>
+</div>

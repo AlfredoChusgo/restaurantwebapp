@@ -14,7 +14,7 @@ namespace Application.Common.Interfaces
     {
         DbSet<BookingItem> BookingItems { get; set; }
         DbSet<ContactUs> ContactUs { get; set; }
-
+        DbSet<Product> Products { get; set; }
         DbSet<BasicBookingScheduleRule> BasicBookingScheduleRules { get; set; }
         //DbSet<SchedulingBookingRule> SchedulingBookingRule { get; set; }
         DbSet<SchedulingExceptionBookingRule> SchedulingExceptionBookingRule { get; set; }

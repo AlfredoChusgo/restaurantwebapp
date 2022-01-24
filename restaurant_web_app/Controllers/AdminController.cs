@@ -13,6 +13,8 @@ using Application.BookingOptions.Queries;
 using Application.Common.Interfaces;
 using Application.Contact.Commands;
 using Application.Contact.Queries;
+using Application.Products.Commands;
+using Application.Products.Queries;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
@@ -287,10 +289,15 @@ namespace restaurant_web_app.Controllers
             return View(vm);
         }
 
+
+        #endregion
+
+        #region Contact US
+
         public async Task<IActionResult> ContactUsList()
         {
             List<ContactUs> contactUsList = await Mediator.Send(new GetAllContactUsQuery());
-            return View("ContactUsList",contactUsList);
+            return View("ContactUsList", contactUsList);
         }
 
         public async Task<IActionResult> DeleteContactUs(int id)
@@ -301,6 +308,66 @@ namespace restaurant_web_app.Controllers
 
             return await ContactUsList();
         }
+
+        #endregion
+
+        #region Products
+
+        public async Task<IActionResult> ProductListIndex()
+        {
+            GetAllProductsQuery query = new GetAllProductsQuery();
+            GetAllProductsVm vm = await Mediator.Send(query);
+            
+            return View("ProductListIndex", vm);
+        }
+
+        public async Task<IActionResult> ProductEdit(int id)
+        {
+            Product vm = await Mediator.Send(new GetProductQuery(id));
+            
+            return View(vm);
+        }
+
+        public async Task<IActionResult> ProductDetail(int id)
+        {
+            Product vm = await Mediator.Send(new GetProductQuery(id));
+
+            return View(vm);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> ProductUpdate([Bind] Product item)
+        {
+            UpdateProductCommand command = new UpdateProductCommand(item);
+            await Mediator.Send(command);
+
+            return await ProductListIndex();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ProductAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct([Bind] Product item)
+        {
+
+            CreateProductCommand command = new CreateProductCommand(item);
+            Product itemCreated = await Mediator.Send(command);
+
+            return await ProductListIndex();
+        }
+
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            DeleteProductCommand command = new DeleteProductCommand(id);
+            await Mediator.Send(command);
+            return await ProductListIndex();
+        }
+
         #endregion
     }
 }

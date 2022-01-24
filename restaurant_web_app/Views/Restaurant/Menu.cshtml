@@ -1,4 +1,8 @@
-﻿<div class="page-wrapper">
+﻿
+@using Domain.Entities
+@model Application.Contact.Queries.GetAllProductsVm
+
+<div class="page-wrapper">
 
     <section class="page-title" style="background-image:url(images/background/4.jpg)">
         <div class="auto-container">
@@ -19,141 +23,150 @@
             </div>
 
             <div class="row clearfix">
+                
+            @foreach (Product item in Model.Products)
+            {
 
-                <!--Dish Item-->
-                <div class="dish-item col-lg-4 col-md-6 col-sm-12">
+
+<!--Dish Item--><div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
-                            <a href="shop-single.html"><img src="/images/resource/dish-1.jpg" alt="" /></a>
+                            @if (item.IsNew)
+                            {
+                                <div class="new">New</div>
+                            } 
+                            @*<a href="shop-single.html"><img src="/images/resource/dish-1.jpg" alt="" /></a>*@
+                            @*<a href="shop-single.html">*@
+                                <img src="@item.ProductImageBase64" alt=""/>
+                            @*</a>*@
                         </figure>
                         <!--Lower Content-->
                         <div class="lower-content">
-                            <h3 class="clearfix"><a href="shop-single.html">Trio Sausages <span class="pull-right">$100</span></a></h3>
-                            <div class="text">Mussel with tomato sauce, wine</div>
+                            <h3 class="clearfix">
+
+                                @*<a href="shop-single.html">*@@item.Name
+                                <span class="pull-right">@item.PriceSymbol @item.Price</span>
+                                @*</a>*@
+                            </h3>
+                            <div class="text">@item.Description</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+            }
+                
+            </div>
+                @*Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <div class="new">New</div>
                             <a href="shop-single.html"><img src="/images/resource/dish-2.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Cabernet Sauvignon<span class="pull-right">$155</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="shop-single.html"><img src="/images/resource/dish-3.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Delirium Tremens <span class="pull-right">$200</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="shop-single.html"><img src="/images/resource/dish-9.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Trio Sausages <span class="pull-right">$100</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="shop-single.html"><img src="/images/resource/dish-10.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Cabernet Sauvignon<span class="pull-right">$155</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="shop-single.html"><img src="/images/resource/dish-11.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Delirium Tremens <span class="pull-right">$200</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="shop-single.html"><img src="/images/resource/dish-12.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Trio Sausages <span class="pull-right">$100</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <a href="shop-single.html"><img src="/images/resource/dish-13.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Cabernet Sauvignon<span class="pull-right">$155</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
                 </div>
-
-                <!--Dish Item-->
+                Dish Item
                 <div class="dish-item col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
                             <div class="new">New</div>
                             <a href="shop-single.html"><img src="/images/resource/dish-14.jpg" alt="" /></a>
                         </figure>
-                        <!--Lower Content-->
-                        <div class="lower-content">
+                Lower Content
+                <div class="lower-content">
                             <h3 class="clearfix"><a href="shop-single.html">Delirium Tremens <span class="pull-right">$200</span></a></h3>
                             <div class="text">Mussel with tomato sauce, wine</div>
                         </div>
                     </div>
-                </div>
+                </div>*@
 
-            </div>
+            
 
         </div>
     </section>
     <!--End Breakfast Section-->
-
     <!--Talk Section-->
     <section class="talk-section">
         <div class="auto-container">

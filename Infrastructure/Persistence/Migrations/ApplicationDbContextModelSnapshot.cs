@@ -139,6 +139,41 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("ContactUs");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsNew")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PriceSymbol")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProductImageBase64")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("Domain.Entities.SchedulingExceptionBookingRule", b =>
                 {
                     b.Property<int>("Id")

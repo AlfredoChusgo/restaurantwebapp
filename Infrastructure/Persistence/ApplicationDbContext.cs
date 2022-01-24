@@ -32,6 +32,7 @@ namespace Infrastructure.Persistence
         public DbSet<SchedulingExceptionBookingRule> SchedulingExceptionBookingRule { get; set; }
         public DbSet<BookingOption> BookingOptions { get; set; }
         public DbSet<ContactUs> ContactUs { get; set; }
+        public DbSet<Product> Products{ get; set; }
         //public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         //{
         //    throw new NotImplementedException();
@@ -43,6 +44,7 @@ namespace Infrastructure.Persistence
             modelBuilder.Entity<BasicBookingScheduleRule>().ToTable("BasicBookingScheduleRules");
             modelBuilder.Entity<BookingOption>().ToTable("BookingOptions");
             modelBuilder.Entity<ContactUs>().ToTable("ContactUs");
+            modelBuilder.Entity<Product>().ToTable("Products");
             //modelBuilder.Entity<SchedulingBookingRule>().ToTable("SchedulingBookingRules");
             //modelBuilder.Entity<SchedulingExceptionBookingRule>().ToTable("SchedulingExceptionBookingRules");
         }
